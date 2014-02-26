@@ -1,3 +1,4 @@
+import ua.ck.cats.Category;
 import ua.ck.cats.User
 import ua.ck.cats.Announcement
 
@@ -13,6 +14,11 @@ class BootStrap {
 			new User("chebTS2@gmail.com", "qwerty", 0.56 , "Cheb2", "Sergey", "Tsybrovskyi", "123456", "Cherkasy").save(failOnError: true)
 			new User("chebTS3@gmail.com", "qwerty", 0.57 , "Cheb3", "Sergey", "Tsybrovskyi", "123456", "Cherkasy").save(failOnError: true)
 			new User("chebTS4@gmail.com", "qwerty", 0.58 , "Cheb4", "Sergey", "Tsybrovskyi", "123456", "Cherkasy").save(failOnError: true)
+		}
+		if(!Category.count()){
+			new Category(0, "Pets").save(failOnError: true)
+			new Category(1, "People").save(failOnError: true)
+			new Category(2, "Things").save(failOnError: true)
 		}
     }
     def destroy = {
