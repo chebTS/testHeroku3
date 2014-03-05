@@ -2,15 +2,34 @@ package ua.ck.cats
 
 class Category {
 
-	private int catID;
+	
 	private String catName;
 
-	public Category(int catID, String catName) {
+	public Category( String catName) {
 		super();
-		this.catID = catID;
-		this.catName = catName;
+	
+		this.catName = catName
 	}
 
 	static constraints = {
     }
 }
+
+/*
+{
+	categories: [
+		{
+			class: "ua.ck.cats.Category",
+			id: 1
+		},
+		{
+			class: "ua.ck.cats.Category",
+			id: 2
+		},
+		{
+			class: "ua.ck.cats.Category",
+			id: 3
+		}
+	]
+}
+*/

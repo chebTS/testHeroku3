@@ -5,20 +5,21 @@ import ua.ck.cats.Announcement
 class BootStrap {
 
     def init = { servletContext ->
-		if(!Announcement.count()){
-			new Announcement("Lost cat", 1, true, "bla bla", 4.4d, 5.5d, "Cherkassy", 1392766862).save(failOnError: true)
-			new Announcement("Lost dog", 2, false, "bla bla", 4.4d, 5.5d, "Cherkassy", 1392766862).save(failOnError: true)
-		}
-		if (!User.count()){
-			new User("chebTS@gmail.com", "qwerty", 0.55 , "Cheb1", "Sergey", "Tsybrovskyi", "123456", "Cherkasy").save(failOnError: true)
-			new User("chebTS2@gmail.com", "qwerty", 0.56 , "Cheb2", "Sergey", "Tsybrovskyi", "123456", "Cherkasy").save(failOnError: true)
-			new User("chebTS3@gmail.com", "qwerty", 0.57 , "Cheb3", "Sergey", "Tsybrovskyi", "123456", "Cherkasy").save(failOnError: true)
-			new User("chebTS4@gmail.com", "qwerty", 0.58 , "Cheb4", "Sergey", "Tsybrovskyi", "123456", "Cherkasy").save(failOnError: true)
-		}
+
 		if(!Category.count()){
-			new Category(0, "Pets").save(failOnError: true)
-			new Category(1, "People").save(failOnError: true)
-			new Category(2, "Things").save(failOnError: true)
+			new Category("Pets").save(failOnError: true)
+			new Category("People").save(failOnError: true)
+			new Category("Things").save(failOnError: true)
+		}
+		
+		if (!User.count()){
+			new User("chebTS@gmail.com", "qwerty", 4.4d, "Cheb", "Serg", "TS", "+380935522110", "Cherkasy").save(failOnError: true)
+			new User("chebTS2@gmail.com", "qwerty", 4.4d, "Cheb2", "Serg2", "TS2", "+380935522110", "Cherkasy").save(failOnError: true)
+		}
+		
+		if(!Announcement.count()){
+			new Announcement(Category.first(), User.first(), "Lost cat", true, "Lost red cat", 4.4d, 5.5d, "Cherkassy", 1392766862).save(failOnError: true)
+			new Announcement(Category.first(), User.first(), "Lost dog", true, "Lost black dog", 4.4d, 5.5d, "Cherkassy", 1392766862).save(failOnError: true)
 		}
     }
     def destroy = {
